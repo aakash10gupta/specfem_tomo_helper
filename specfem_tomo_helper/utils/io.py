@@ -46,8 +46,11 @@ def _write_header(interp_X,interp_Y,interp_Z,interp_vp,interp_vs, interp_rho, x_
     NX = len(x_interp_coordinates)
     NY = len(y_interp_coordinates)
     NZ = len(z_interp_coordinates)
+    NX = int(NX)
+    NY = int(NY)
+    NZ = int(NZ)
     print(NX, NY, NZ)
-    HEAD3 = np.asarray([NX, NY, NZ])
+    HEAD3 = [str(NX), str(NY), str(NZ)]  # SPECFEM3D is not happy anymore with floats in the header so that's a hack to keep the right formatting.
     # -----------------------------------------------------------
     VP_MIN = np.min(interp_vp)
     VP_MAX = np.max(interp_vp)
