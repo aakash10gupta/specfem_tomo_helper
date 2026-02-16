@@ -395,7 +395,8 @@ def main():
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
         ax.scatter(outer_shell[:, 0], outer_shell[:, 1], outer_shell[:, 2], c=outer_shell[:, color_idx])
-        plt.show()
+        if config.get('show_plot', True):
+            plt.show()
 
 if __name__ == '__main__':
     main()
